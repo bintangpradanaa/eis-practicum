@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 19.8, "left": 18.6, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": 256, "left": 63.2, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-led", "id": "led1", "top": -70.8, "left": 61.4, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr2",
+      "top": 70.2,
+      "left": 353.2,
+      "rotate": 180,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "uno:GND.2", "lcd:GND", "black", [ "v17", "*", "h-20" ] ],
+    [ "uno:5V", "lcd:VCC", "red", [ "v22", "*", "h-16" ] ],
+    [ "uno:A4", "lcd:SDA", "green", [ "v28", "*", "h-12" ] ],
+    [ "uno:A5", "lcd:SCL", "blue", [ "v35", "*", "h-8" ] ],
+    [ "led1:A", "uno:7", "green", [ "v9.6", "h124.8" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "v38.4", "h0.4" ] ],
+    [ "ldr2:AO", "uno:A1", "green", [ "h0" ] ],
+    [ "ldr2:GND", "uno:GND.3", "black", [ "h0" ] ],
+    [ "ldr2:VCC", "uno:5V", "red", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
